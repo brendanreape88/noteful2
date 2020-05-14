@@ -1,12 +1,15 @@
 import React from 'react'
 
-function NoteContent() {
-    return(
-        <div className="note-content-div">
-            <h3>Note Name Here</h3>
-            <p>Note content here.</p>
-        </div>
-    )
+class NoteContent extends React.Component {
+    render() {
+        const { name, content, noteId } = this.props.notes
+        return(
+            <div className="note-content-div">
+                <h3>{name}</h3>
+                <p>{content}</p>
+            </div>
+        )
+    }
 }
 
 export default NoteContent
