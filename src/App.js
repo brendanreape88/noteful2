@@ -48,10 +48,10 @@ class App extends Component {
           </header>
           <main className="main">
             <div class="sidebar">
-              {this.renderMainRoutes}
+              {this.renderMainRoutes()}
             </div>
             <div className="main-content">
-              {this.renderMainRoutes}
+              {this.renderMainRoutes()}
             </div>
           </main>
         </div>
