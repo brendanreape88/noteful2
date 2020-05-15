@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 class Note extends React.Component {
 
     render() {
-        const { name, noteId } = this.props
+        const { name, id } = this.props
 
         return(
             <div className="note-div">
                 <h3>
-                    <Link to={`note/${noteId}`}>
+                    <Link to={`/note/${id}`}>
                         {name}
                     </Link>
                 </h3>

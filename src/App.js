@@ -6,11 +6,33 @@ import MainNoteList from './MainNoteList/MainNoteList'
 import NavFolderList from './NavFolderList/NavFolderList'
 import NoteContent from './NoteContent/NoteContent'
 import FolderContent from './FolderContent/FolderContent'
+import config from './config'
 
 class App extends Component {
   state = {
     notes: [],
     folders: []
+  }
+
+  componentDidMount() {
+    Promise.all([
+        fetch(`${config.API_ENDPOINT}/notes`),
+        fetch(`${config.API_ENDPOINT}/folders`)
+    ])
+        .then(([notesRes, foldersRes]) => {
+            if (!notesRes.ok)
+                return notesRes.json().then(e => Promise.reject(e));
+            if (!foldersRes.ok)
+                return foldersRes.json().then(e => Promise.reject(e));
+
+            return Promise.all([notesRes.json(), foldersRes.json()]);
+        })
+        .then(([notes, folders]) => {
+            this.setState({notes, folders});
+        })
+        .catch(error => {
+            console.error({error});
+        });
   }
 
   renderFolderRoutes() {
@@ -46,22 +68,11 @@ class App extends Component {
   }
 
   render() {
-    const value = {    
-      notes: [
-        {name: "red", content: "red is a color", noteId: 1, folderId: 1},
-        {name: "blue", content: "blue is a color", noteId: 2, folderId: 1},
-        {name: "yellow", content: "yellow is a color", noteId: 3, folderId: 1},
-        {name: "cumulus", content: "cumulus is a type of cloud formation", noteId: 4, folderId: 2},
-        {name: "stratus", content: "stratus is a type of cloud formation", noteId: 5, folderId: 2},
-        {name: "green tea", content: "green tea is a type of tea", noteId: 6, folderId: 3},
-        {name: "black tea", content: "black tea is a type of tea", noteId: 7, folderId: 3}
-      ],
-      folders: [
-        {name: "primary colors", folderId: 1},
-        {name: "clouds", folderId: 2},
-        {name: "teas", folderId: 3}
-    ]};
-
+    const value = {
+      notes: this.state.notes,
+      folders: this.state.folders,
+    }   
+    
     return(
       <AppContext.Provider value={value}>
         <div className="app">

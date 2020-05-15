@@ -1,22 +1,31 @@
 import React from 'react'
 import AppContext from '../AppContext'
 import Note from '../Note/Note'
+import { getNotesForFolder } from '../notes-helpers'
 
 class MainNoteList extends React.Component {
+    static defaultProps = {
+        match: {
+            params: {}
+        }
+    }
+
     static contextType = AppContext
 
     render() {
-
+        {/*const noteContext = this.context.notes*/}
+        const { folderId } = this.props.match.params
+        const { notes=[] } = this.context
+        const notesForFolder = getNotesForFolder(notes, folderId)
         return(
             <section className="note-list-main">
                 <ul>
-                    {noteContext.map(data =>
-                        <li key={data.noteId}>
+                    {notesForFolder.map(note =>
+                        <li key={note.id}>
                             <Note
-                                name={data.name}
-                                content={data.content}
-                                noteId={data.noteId}
-                                folderId={data.folderId}
+                                id={note.id}
+                                name={note.name}
+                                content={note.content}
                             />
                         </li>
                     )}
