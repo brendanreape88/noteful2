@@ -1,21 +1,23 @@
 import React from 'react'
-import Context from 'Context.js'
+import Context from 'Context'
 import Note from '../Note/Note'
 
 class MainNoteList extends React.Component {
     static contextType = Context
 
     render() {
-        const { name, content, noteId, folderId } = this.context
+        const noteContext = this.context.notes
 
         return(
             <section className="note-list-main">
                 <ul>
-                    {something.map( => 
-                        <li key={noteId}>
+                    {noteContext.map(data => 
+                        <li key={data.noteId}>
                             <Note
-                                id={noteId}
-                                name={name}
+                                name={data.name}
+                                content={data.content}
+                                noteId={data.noteId}
+                                folderId={data.folderId}
                             />
                         </li>
                     )}
