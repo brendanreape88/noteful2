@@ -1,11 +1,10 @@
 import React from 'react'
-import Context from 'src/Context.js'
+import { Link } from 'react-router-dom'
 
 class Folder extends React.Component {
-    static contextType = Context
 
     render() {
-        const { name, folderId } = this.context.folder
+        const { name, folderId } = this.props
         return(
             <div className="folder-div">
                 <h2>
