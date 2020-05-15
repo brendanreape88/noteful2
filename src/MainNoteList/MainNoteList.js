@@ -6,18 +6,18 @@ class MainNoteList extends React.Component {
     static contextType = AppContext
 
     render() {
-        const noteContext = this.context.notes
+        const noteContext = this.context
 
         return(
             <section className="note-list-main">
                 <ul>
                     {noteContext.map(data => 
-                        <li key={data.noteId}>
+                        <li key={data.notes.noteId}>
                             <Note
-                                name={data.name}
-                                content={data.content}
-                                noteId={data.noteId}
-                                folderId={data.folderId}
+                                name={data.notes.name}
+                                content={data.notes.content}
+                                noteId={data.notes.noteId}
+                                folderId={data.notes.folderId}
                             />
                         </li>
                     )}
