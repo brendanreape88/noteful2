@@ -1,9 +1,9 @@
 import React from 'react'
-import Context from 'Context'
+import AppContext from '../AppContext'
 import Note from '../Note/Note'
 
 class MainNoteList extends React.Component {
-    static contextType = Context
+    static contextType = AppContext
 
     render() {
         const noteContext = this.context.notes

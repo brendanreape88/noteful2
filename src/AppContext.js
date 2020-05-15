@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Context = React.createContext({
+const AppContext = React.createContext({
 
     notes: [
         {name: "red", content: "red is a color", noteId: 1, folderId: 1},
@@ -19,4 +19,4 @@ const Context = React.createContext({
 
 })
 
-export default Context
+export default AppContext

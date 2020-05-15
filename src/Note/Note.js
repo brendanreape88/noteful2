@@ -1,9 +1,9 @@
 import React from 'react'
-import Context from 'src/Context.js'
+import AppContext from '../AppContext'
 import { Link } from 'react-router-dom'
 
 class Note extends React.Component {
-    static contextType = Context
+    static contextType = AppContext
 
     render() {
         const { name, noteId } = this.context.notes
