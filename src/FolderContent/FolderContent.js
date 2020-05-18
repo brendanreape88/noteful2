@@ -1,9 +1,37 @@
 import React from 'react'
+import AppContext from '../AppContext'
+import { findNote, findFolder } from '../note-helpers'
+import './FolderContent.css'
 
-function FolderContent() {
-    return(
-        <h1>You should see this when you're on the note content path!</h1>
-    )
+
+class FolderContent extends React.Component {
+    static defaultProps = {
+        history: {
+          goBack: () => { }
+        },
+        match: {
+          params: {}
+        }
+    }
+
+    static contextType = AppContext;
+
+    render() {
+        const { notes, folders, } = this.context
+        const { noteId } = this.props.match.params
+        const note = findNote(notes, noteId) || {}
+        const folder = findFolder(folders, note.folderId)
+        console.log(folder)
+        return (
+            <div>
+                {folder && (
+                <h1 className="verticalFolder">{folder.name}</h1>
+                )}
+            </div>
+        )
+    }
+
+    
 }
 
 export default FolderContent

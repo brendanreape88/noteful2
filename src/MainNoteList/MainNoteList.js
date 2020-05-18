@@ -1,7 +1,8 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import AppContext from '../AppContext'
 import Note from '../Note/Note'
-import { getNotesForFolder } from '../notes-helpers'
+import { getNotesForFolder } from '../note-helpers'
 
 class MainNoteList extends React.Component {
     static defaultProps = {
@@ -30,6 +31,11 @@ class MainNoteList extends React.Component {
                         </li>
                     )}
                 </ul>
+                <button>
+                    <Link to='/add-note'>
+                        + add note
+                    </Link>
+                </button>
             </section>
         )
     }

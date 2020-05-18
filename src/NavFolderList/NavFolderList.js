@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import AppContext from '../AppContext'
-import Folder from '../Folder/Folder'
 
 class NavFolderList extends React.Component {
     static contextType = AppContext
@@ -19,6 +18,11 @@ class NavFolderList extends React.Component {
                         </li>
                     )}
                 </ul>
+                <button>
+                    <Link to='/add-folder'>
+                        + add folder
+                    </Link>
+                </button>
             </div>
         )
     }
