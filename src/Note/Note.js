@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 class Note extends React.Component {
 
@@ -16,6 +17,11 @@ class Note extends React.Component {
             </div>
         )
     }
+}
+
+Note.propTypes = {
+    name: PropTypes.string,
+    id: PropTypes.string
 }
 
 export default Note

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 class Folder extends React.Component {
 
@@ -15,6 +16,11 @@ class Folder extends React.Component {
             </div>
         )
     }
+}
+
+Folder.propTypes = {
+    name: PropTypes.string,
+    folderId: PropTypes.string
 }
 
 export default Folder

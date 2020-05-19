@@ -2,6 +2,7 @@ import React from 'react'
 import AppContext from '../AppContext'
 import Note from "../Note/Note"
 import { findNote } from '../note-helpers'
+import PropTypes from 'prop-types'
 
 class NoteContent extends React.Component {
     static contextType = AppContext
@@ -22,6 +23,10 @@ class NoteContent extends React.Component {
             </div>
         )
     }
+}
+
+NoteContent.propTypes = {
+    noteId: PropTypes.string
 }
 
 export default NoteContent

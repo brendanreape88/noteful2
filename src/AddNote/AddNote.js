@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import AppContext from '../AppContext'
 import config from '../config'
+import HasError from '../HasError/HasError'
 
 class AddFolder extends Component {
     static defaultProps = {
@@ -13,9 +14,9 @@ class AddFolder extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         const note = {
-            folderName: event.target["folder-name"].value,
-            noteName: event.target["note-name"].value,
-            noteContent: event.target["note-content"].value
+            folderId: event.target["folder-id"].value,
+            name: event.target["note-name"].value,
+            content: event.target["note-content"].value
         }
         fetch(`${config.API_ENDPOINT}/notes`, {
             method: 'POST',
@@ -39,18 +40,27 @@ class AddFolder extends Component {
     }
 
     render() {
+        const folderList = this.context.folders
         return (
             <div>
+                <HasError>
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         let's take a note : )
                         <br />
-                        <input 
-                            type="text" 
-                            placeholder="folder name"
-                            name="folder-name"
-                            id="folder-name-input"
-                        />
+                        <select 
+                            name="folder-id"
+                            id="folder-id-input"
+                            required
+                        >
+                            {folderList.map(f => 
+                            <option 
+                                value={f.id}
+                            >
+                                {f.name}
+                            </option>
+                            )}
+                        </select>
                         <input 
                             type="text" 
                             placeholder="note name"
@@ -65,8 +75,9 @@ class AddFolder extends Component {
                         />
                     </label>
                     <br />
-                    <button>submit note</button>
+                    <button onClick={() => this.props.history.goBack()}>submit note</button>
                 </form>
+                </HasError>
             </div>
         )
     }

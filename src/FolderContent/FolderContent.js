@@ -2,6 +2,7 @@ import React from 'react'
 import AppContext from '../AppContext'
 import { findNote, findFolder } from '../note-helpers'
 import './FolderContent.css'
+import PropTypes from 'prop-types'
 
 
 class FolderContent extends React.Component {
@@ -32,6 +33,10 @@ class FolderContent extends React.Component {
     }
 
     
+}
+
+FolderContent.propTypes = {
+    noteId: PropTypes.string
 }
 
 export default FolderContent

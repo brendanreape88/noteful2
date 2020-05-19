@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import AppContext from '../AppContext'
 import config from '../config'
+import HasError from '../HasError/HasError'
 
 class AddFolder extends Component {
     static defaultProps = {
@@ -39,20 +40,23 @@ class AddFolder extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        let's make a folder : )
+                <HasError>
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                            let's make a folder : )
+                            <br />
+                            <input 
+                                type="text" 
+                                placeholder="folder name"
+                                name="folder-name"
+                                id="folder-name-input"
+                                required
+                            />
+                        </label>
                         <br />
-                        <input 
-                            type="text" 
-                            placeholder="folder name"
-                            name="folder-name"
-                            id="folder-name-input"
-                        />
-                    </label>
-                    <br />
-                    <button>submit folder</button>
-                </form>
+                        <button onClick={() => this.props.history.goBack()}>submit folder</button>
+                    </form>
+                </HasError>
             </div>
         )
     }

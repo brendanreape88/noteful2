@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import AppContext from '../AppContext'
 import Note from '../Note/Note'
 import { getNotesForFolder } from '../note-helpers'
+import PropTypes from 'prop-types'
 
 class MainNoteList extends React.Component {
     static defaultProps = {
@@ -39,6 +40,10 @@ class MainNoteList extends React.Component {
             </section>
         )
     }
+}
+
+MainNoteList.propTypes = {
+    folderId: PropTypes.string
 }
 
 export default MainNoteList
