@@ -32,7 +32,7 @@ class AddFolder extends Component {
           })
           .then(note => {
             this.context.addNote(note)
-            this.props.history.push(`/note/${note.id}`)
+            this.props.history.push(`/folder/${note.folderId}`)
           })
           .catch(error => {
             console.error({ error })
@@ -52,6 +52,8 @@ class AddFolder extends Component {
                             name="folder-id"
                             id="folder-id-input"
                             required
+                            aria-required="true"
+                            aria-describedby="newNoteRequirementSelect"
                         >
                             {folderList.map(f => 
                             <option 
@@ -61,21 +63,33 @@ class AddFolder extends Component {
                             </option>
                             )}
                         </select>
+                        <div id="newNoteRequirementSelect">
+                            please select a folder for your new note
+                        </div>
                         <input 
                             type="text" 
                             placeholder="note name"
                             name="note-name"
                             id="note-name-input"
                             required
-
+                            aria-required="true"
+                            aria-describedby="newNoteRequirementName"
                         />
+                        <div id="newNoteRequirementName">
+                            please name your new note
+                        </div>
                         <input 
                             type="text" 
                             placeholder="type your message here..."
                             name="note-content"
                             id="note-content-input"
                             required
+                            aria-required="true"
+                            aria-describedby="newNoteRequirementContent"
                         />
+                        <div id="newNoteRequirementContent">
+                            please type a message
+                        </div>
                     </label>
                     <br />
                     <button>submit note</button>

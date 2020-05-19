@@ -51,7 +51,10 @@ class AddFolder extends Component {
                                 name="folder-name"
                                 id="folder-name-input"
                                 required
+                                aria-required="true"
+                                aria-describedby="newFolderRequirement"
                             />
+                            <div id="newFolderRequirement">please type in a folder name</div>
                         </label>
                         <br />
                         <button>submit folder</button>
