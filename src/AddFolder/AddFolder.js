@@ -54,14 +54,13 @@ class AddFolder extends Component {
                             />
                         </label>
                         <br />
-                        <button onClick={() => this.props.history.goBack()}>submit folder</button>
+                        <button>submit folder</button>
                     </form>
                 </HasError>
             </div>
         )
     }
-
-
 }
 
+//onClick={() => this.props.history.goBack()}
 export default AddFolder

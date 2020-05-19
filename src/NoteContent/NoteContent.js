@@ -26,7 +26,7 @@ class NoteContent extends React.Component {
 }
 
 NoteContent.propTypes = {
-    noteId: PropTypes.string
+    noteId: PropTypes.string.isRequired
 }
 
 export default NoteContent

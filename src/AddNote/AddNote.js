@@ -66,23 +66,25 @@ class AddFolder extends Component {
                             placeholder="note name"
                             name="note-name"
                             id="note-name-input"
+                            required
+
                         />
                         <input 
                             type="text" 
                             placeholder="type your message here..."
                             name="note-content"
                             id="note-content-input"
+                            required
                         />
                     </label>
                     <br />
-                    <button onClick={() => this.props.history.goBack()}>submit note</button>
+                    <button>submit note</button>
                 </form>
                 </HasError>
             </div>
         )
     }
-
-
 }
 
+//onClick={() => this.props.history.goBack()}
 export default AddFolder

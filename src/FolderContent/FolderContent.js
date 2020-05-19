@@ -36,7 +36,7 @@ class FolderContent extends React.Component {
 }
 
 FolderContent.propTypes = {
-    noteId: PropTypes.string
+    noteId: PropTypes.string.isRequired
 }
 
 export default FolderContent

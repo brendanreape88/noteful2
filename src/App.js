@@ -86,7 +86,7 @@ class App extends Component {
             </h1>
           </header>
           <main className="main">
-            <div class="sidebar">
+            <div className="sidebar">
               {this.renderFolderRoutes()}
             </div>
             <div className="main-content">
