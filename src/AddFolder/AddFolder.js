@@ -29,7 +29,7 @@ class AddFolder extends Component {
             return res.json()
           })
           .then(folder => {
-            this.context.addFolder(folder)
+            this.context.handleAddFolder(folder)
             this.props.history.push(`/folder/${folder.id}`)
           })
           .catch(error => {

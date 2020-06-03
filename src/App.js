@@ -81,6 +81,7 @@ class App extends Component {
   }
 
   handleAddNote = note => {
+    console.log("ADD NOTE:", note);
     this.setState({
       notes: [
         ...this.state.notes,
@@ -94,7 +95,7 @@ class App extends Component {
       notes: this.state.notes,
       folders: this.state.folders,
       handleAddFolder: this.handleAddFolder,
-      handleAddNote: this.handleAddNote
+      handleAddNote: this.handleAddNote,
     }   
     
     return(

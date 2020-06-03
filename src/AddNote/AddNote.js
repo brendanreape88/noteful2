@@ -31,7 +31,7 @@ class AddFolder extends Component {
             return res.json()
           })
           .then(note => {
-            this.context.addNote(note)
+            this.context.handleAddNote(note)
             this.props.history.push(`/folder/${note.folderId}`)
           })
           .catch(error => {
