@@ -93,6 +93,8 @@ class App extends Component {
     const value = {
       notes: this.state.notes,
       folders: this.state.folders,
+      handleAddFolder: this.handleAddFolder,
+      handleAddNote: this.handleAddNote
     }   
     
     return(
