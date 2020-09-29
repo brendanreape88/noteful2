@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const AppContext = React.createContext({
   notes: [],
@@ -6,6 +6,7 @@ const AppContext = React.createContext({
   addFolder: () => {},
   addNote: () => {},
   deleteNote: () => {},
-})
+  deleteFolder: () => {},
+});
 
-export default AppContext
+export default AppContext;
