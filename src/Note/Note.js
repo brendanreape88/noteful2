@@ -25,7 +25,6 @@ class Note extends React.Component {
       .then(() => {
         this.context.deleteNote(noteId);
         this.props.history.push(`/`);
-        console.log(this.props);
         //this.props.onDeleteNote(noteId);
       })
       .catch((error) => {
@@ -34,8 +33,7 @@ class Note extends React.Component {
   };
 
   render() {
-    const { name, id } = this.props;
-
+    const { name, id, modified } = this.props;
     return (
       <div className="note-div">
         <h3>
@@ -48,6 +46,8 @@ class Note extends React.Component {
         >
           delete
         </button>
+        <br />
+        <span>{modified}</span>
       </div>
     );
   }
