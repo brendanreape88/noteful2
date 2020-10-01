@@ -1,3 +1,3 @@
 export default {
-  API_ENDPOINT: "afternoon-river-62551",
+  API_ENDPOINT: "https://afternoon-river-62551",
 };
