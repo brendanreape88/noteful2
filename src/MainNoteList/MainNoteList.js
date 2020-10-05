@@ -15,12 +15,10 @@ class MainNoteList extends React.Component {
   static contextType = AppContext;
 
   render() {
-    {
-      /*const noteContext = this.context.notes*/
-    }
     const { folderId } = this.props.match.params;
     const { notes = [] } = this.context;
     const notesForFolder = getNotesForFolder(notes, folderId);
+    console.log(notesForFolder);
     return (
       <section className="note-list-main">
         <ul>
