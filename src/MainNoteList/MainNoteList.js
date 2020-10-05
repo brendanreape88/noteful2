@@ -16,8 +16,12 @@ class MainNoteList extends React.Component {
 
   render() {
     const { folderId } = this.props.match.params;
+    const folderNumberId = parseFloat(folderId);
+    console.log(folderId);
+    console.log(folderNumberId);
     const { notes = [] } = this.context;
-    const notesForFolder = getNotesForFolder(notes, folderId);
+    console.log(notes);
+    const notesForFolder = getNotesForFolder(notes, folderNumberId);
     console.log(notesForFolder);
     return (
       <section className="note-list-main">
@@ -43,7 +47,7 @@ class MainNoteList extends React.Component {
 }
 
 MainNoteList.propTypes = {
-  folderId: PropTypes.string,
+  folderId: PropTypes.number,
 };
 
 export default MainNoteList;

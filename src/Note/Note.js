@@ -19,13 +19,11 @@ class Note extends React.Component {
       },
     })
       .then((res) => {
-        if (!res.ok) return res.json().then((e) => Promise.reject(e));
-        return res.json();
-      })
-      .then(() => {
+        if (!res.ok) {
+          return res.json().then((e) => Promise.reject(e));
+        }
         this.context.deleteNote(noteId);
-        this.props.history.push(`/`);
-        //this.props.onDeleteNote(noteId);
+        this.props.history.push("/");
       })
       .catch((error) => {
         console.error({ error });
@@ -37,7 +35,7 @@ class Note extends React.Component {
     return (
       <div className="note-div">
         <h3>
-          <Link to={`/note/${id}`}>{name}</Link>
+          <Link to={`/notes/${id}`}>{name}</Link>
         </h3>
         <button
           className="Note__delete"
@@ -55,7 +53,7 @@ class Note extends React.Component {
 
 Note.propTypes = {
   name: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.number,
 };
 
 export default Note;

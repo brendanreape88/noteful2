@@ -17,16 +17,10 @@ class FolderContent extends React.Component {
   static contextType = AppContext;
 
   render() {
-    // console.log(this.context);
-    // const folderId = this.props.match.params;
-    // console.log(folderId);
-    // const matchedFolder = this.context.folders.find(
-    //   (folder) => folder.id === folderId
-    // );
-    // console.log(matchedFolder);
     const { notes, folders } = this.context;
     const { noteId } = this.props.match.params;
-    const note = findNote(notes, noteId) || {};
+    const noteNumberId = parseInt(noteId);
+    const note = findNote(notes, noteNumberId) || {};
     console.log(note);
     const folder = findFolder(folders, note.folder);
     console.log(folder);
@@ -39,7 +33,7 @@ class FolderContent extends React.Component {
 }
 
 FolderContent.propTypes = {
-  noteId: PropTypes.string.isRequired,
+  noteId: PropTypes.number.isRequired,
 };
 
 export default FolderContent;

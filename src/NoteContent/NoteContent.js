@@ -10,7 +10,8 @@ class NoteContent extends React.Component {
   render() {
     const { notes = [] } = this.context;
     const { noteId } = this.props.match.params;
-    const note = findNote(notes, noteId) || { content: "" };
+    const noteNumberId = parseInt(noteId);
+    const note = findNote(notes, noteNumberId) || { content: "" };
     return (
       <div className="note-content-div">
         <Note id={note.id} name={note.name} history={this.props.history} />
@@ -24,7 +25,7 @@ class NoteContent extends React.Component {
 }
 
 NoteContent.propTypes = {
-  noteId: PropTypes.string.isRequired,
+  noteId: PropTypes.number.isRequired,
 };
 
 export default NoteContent;

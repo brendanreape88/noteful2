@@ -40,10 +40,10 @@ class App extends Component {
   renderFolderRoutes() {
     return (
       <>
-        {["/", "/folder/:folderId"].map((path) => (
+        {["/", "/folders/:folderId"].map((path) => (
           <Route exact key={path} path={path} component={NavFolderList} />
         ))}
-        <Route path="/note/:noteId" component={FolderContent} />
+        <Route path="/notes/:noteId" component={FolderContent} />
         <Route path="/add-folder" component={AddFolder} />
       </>
     );
@@ -52,10 +52,10 @@ class App extends Component {
   renderNoteRoutes() {
     return (
       <>
-        {["/", "/folder/:folderId"].map((path) => (
+        {["/", "/folders/:folderId"].map((path) => (
           <Route exact key={path} path={path} component={MainNoteList} />
         ))}
-        <Route path="/note/:noteId" component={NoteContent} />
+        <Route path="/notes/:noteId" component={NoteContent} />
         <Route path="/add-note" component={AddNote} />
       </>
     );
