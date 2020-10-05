@@ -1,6 +1,6 @@
 import React from "react";
 import AppContext from "../AppContext";
-import { findNote, findFolder } from "../note-helpers";
+//import { findNote, findFolder } from "../note-helpers";
 import "./FolderContent.css";
 import PropTypes from "prop-types";
 
@@ -17,15 +17,23 @@ class FolderContent extends React.Component {
   static contextType = AppContext;
 
   render() {
-    const { notes, folders } = this.context;
-    const { noteId } = this.props.match.params;
-    const note = findNote(notes, noteId) || {};
-    console.log(note);
-    const folder = findFolder(folders, note.folder);
-    console.log(folder);
+    console.log(this.context);
+    const folderId = this.props.match.params;
+    console.log(folderId);
+    const matchedFolder = this.context.folders.find(
+      (folder) => folder.id === folderId
+    );
+    console.log(matchedFolder);
+    // const { noteId } = this.props.match.params;
+    // const note = findNote(notes, noteId) || {};
+    // console.log(note);
+    // const folder = findFolder(folders, note.folder);
+    // console.log(folder);
     return (
       <div>
-        {folder && <h1 className="verticalFolder">{folder.folder_name}</h1>}
+        {matchedFolder && (
+          <h1 className="verticalFolder">{matchedFolder.folder_name}</h1>
+        )}
       </div>
     );
   }

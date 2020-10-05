@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 class Folder extends React.Component {
   render() {
     const { folder_name, id } = this.props;
+    console.log(this.props);
     return (
       <div className="folder-div">
         <h2>
