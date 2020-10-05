@@ -32,7 +32,7 @@ class AddNote extends Component {
       })
       .then((note) => {
         this.context.handleAddNote(note);
-        this.props.history.push(`/folder/${note.folderId}`);
+        this.props.history.push(`/folders/${note.folderId}`);
       })
       .catch((error) => {
         console.error({ error });
