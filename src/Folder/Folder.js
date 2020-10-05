@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 
 class Folder extends React.Component {
   render() {
-    const { name, folderId } = this.props;
+    const { folder_name, id } = this.props;
     return (
       <div className="folder-div">
         <h2>
-          <Link to={`folder/${folderId}`}>{name}</Link>
+          <Link to={`folder/${id}`}>{folder_name}</Link>
         </h2>
       </div>
     );

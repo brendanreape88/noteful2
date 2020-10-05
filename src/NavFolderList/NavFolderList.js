@@ -38,7 +38,9 @@ class NavFolderList extends React.Component {
         <ul>
           {folders.map((folder) => (
             <li key={folder.id}>
-              <NavLink to={`/folder/${folder.id}`}>{folder.name}</NavLink>
+              <NavLink to={`/folders/${folder.id}`}>
+                {folder.folder_name}
+              </NavLink>
             </li>
             // <button
             //   className="Folder__delete"

@@ -14,10 +14,10 @@ class AddNote extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const note = {
-      folderId: event.target["folder-id"].value,
-      name: event.target["note-name"].value,
+      note_name: event.target["note-name"].value,
       content: event.target["note-content"].value,
       modified: new Date(),
+      folder_id: event.target["folder-id"].value,
     };
     fetch(`${config.API_ENDPOINT}/notes`, {
       method: "POST",
@@ -56,7 +56,7 @@ class AddNote extends Component {
                 aria-describedby="newNoteRequirementSelect"
               >
                 {folderList.map((f) => (
-                  <option value={f.id}>{f.name}</option>
+                  <option value={f.id}>{f.folder_name}</option>
                 ))}
               </select>
               <div id="newNoteRequirementSelect">
